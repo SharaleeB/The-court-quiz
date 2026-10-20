@@ -136,6 +136,34 @@ background:transparent;
 .trait h3 { color:var(--accent);font-size:10px;font-weight:normal;letter-spacing:2px;text-transform:uppercase;margin:0 0 10px; }
 .trait p { font-size:13px;line-height:1.75;margin:0; }
 .magic { color:var(--accent);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;line-height:1.8;margin-top:26px; }
+
+.magic-feature {
+  margin:28px auto 18px;
+  padding:22px 20px;
+  max-width:100%;
+  text-align:center;
+  border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);
+  border-radius:14px;
+  background:rgba(12,9,19,.22);
+}
+.magic-symbol {
+  color:var(--accent);
+  font-size:26px;
+  margin-bottom:8px;
+}
+.magic-heading {
+  color:var(--accent);
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+.magic-description {
+  color:#f8f0e8;
+  font-size:20px;
+  line-height:1.5;
+}
+
 .result-actions { display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:27px; }
 footer { text-align:center;color:#82768f;font-size:9px;letter-spacing:2px;padding-top:24px;line-height:1.8; }
 @media(min-width:600px) {
@@ -185,13 +213,22 @@ footer { text-align:center;color:#82768f;font-size:9px;letter-spacing:2px;paddin
     <div class="rule"></div>
     <div class="result-tagline" id="tagline"></div>
     <p class="result-copy" id="description"></p>
-    <div class="result-grid">
-      <div class="trait"><h3>Your greatest strength</h3><p id="strength"></p></div>
-      <div class="trait"><h3>Your hidden edge</h3><p id="shadow"></p></div>
-      <div class="trait"><h3>When it comes to love</h3><p id="love"></p></div>
-      <div class="trait"><h3>Your court's magic</h3><p id="magicDetail"></p></div>
-    </div>
-    <div class="magic" id="magic"></div>
+    
+<div class="magic-feature">
+  <div class="magic-symbol">✧</div>
+  <div class="magic-heading">Your Magic</div>
+  <div class="magic-description" id="magicDetail"></div>
+</div>
+<div class="result-grid">
+  <div class="trait">
+    <h3>Your Greatest Strength</h3>
+    <p id="strength"></p>
+  </div>
+  <div class="trait">
+    <h3>Your Hidden Edge</h3>
+    <p id="shadow"></p>
+  </div>
+</div>
     <p class="result-copy" id="closing"></p>
     <div class="result-actions">
       <button class="primary" id="share">Share my court</button>
@@ -387,9 +424,7 @@ document.body.style.backgroundImage =
   $("description").textContent=result.description;
   $("strength").textContent=result.strength;
   $("shadow").textContent=result.shadow;
-  $("love").textContent=result.love;
   $("magicDetail").textContent=result.magic;
-  $("magic").textContent="Your magic: "+result.magic;
   $("closing").textContent=result.closing;
   $("share").textContent="Share my court";
   document.title=`${winner} Court | Which Court of Prythian Claims You?`;
