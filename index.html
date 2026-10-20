@@ -175,6 +175,50 @@ footer { text-align:center;color:#82768f;font-size:9px;letter-spacing:2px;paddin
 @media(prefers-reduced-motion:reduce) {
   *,*:before,*:after { animation:none!important;transition:none!important;scroll-behavior:auto!important; }
 }
+
+.bnb-signature {
+  text-align: center;
+  margin: 30px auto 12px;
+  padding: 18px 12px;
+  max-width: 570px;
+}
+
+.bnb-divider {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+}
+
+.bnb-title {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.bnb-tagline {
+  color: #f8f0e8;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+
+.bnb-link {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 4px;
+}
+
+.bnb-link:hover {
+  opacity: 0.8;
+}
+
 </style>
 </head>
 <body>
@@ -232,8 +276,15 @@ footer { text-align:center;color:#82768f;font-size:9px;letter-spacing:2px;paddin
     <p class="result-copy" id="closing"></p>
     <div class="result-actions">
       <button class="primary" id="share">Share my court</button>
-      <button class="small" id="restart">Begin again</button>
     </div>
+    
+<div class="bnb-signature">
+  <div class="bnb-divider">✧ A LITTLE MAGIC ✧</div>
+  <p class="bnb-title">Created by the Book Nook Babes</p>
+  <p class="bnb-tagline">Your court has claimed you. Now come yap about books with us.</p>
+  <a class="bnb-link" href="https://www.instagram.com/book_nook_babes/" target="_blank" rel="noopener noreferrer">@book_nook_babes on Instagram ↗</a>
+</div>
+
     <p class="note">A little magic, a little mystery, entirely for fun.</p>
   </div>
 </section>
