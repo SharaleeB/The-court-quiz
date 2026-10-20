@@ -7,47 +7,139 @@
 <meta name="theme-color" content="#100d1c">
 <title>Which Court of Prythian Claims You?</title>
 <style>
-:root{--bg:#100d1c;--gold:#d8bd87;--muted:#b8afc6;--panel:rgba(29,23,43,.88)}
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 5%,#302343,#171224 48%,#0b0912);color:#f8f1e8;font-family:Georgia,"Times New Roman",serif}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(1px 1px at 12% 20%,#fff,transparent),radial-gradient(2px 2px at 76% 12%,#e7d8ff,transparent),radial-gradient(1px 1px at 42% 60%,#fff,transparent),radial-gradient(1px 1px at 87% 73%,#fff,transparent),radial-gradient(2px 2px at 22% 83%,#dfc6ff,transparent),radial-gradient(1px 1px at 62% 38%,#fff,transparent);background-size:280px 260px}
-button{font:inherit;cursor:pointer}
-.shell{width:min(760px,100%);min-height:100vh;margin:auto;padding:34px 22px 30px;display:flex;flex-direction:column;position:relative}
-.top{text-align:center;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
-main{flex:1;display:flex;align-items:center;justify-content:center;padding:32px 0}
-.screen{width:100%;text-align:center;animation:appear .6s ease both}
-@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.moon{font-size:54px;color:var(--gold);margin:22px 0 12px;text-shadow:0 0 35px #c6a6ff66}
-h1{font-size:clamp(36px,8vw,62px);font-weight:normal;line-height:1.08;margin:16px auto 20px;max-width:650px}
-h2{font-size:clamp(27px,6vw,39px);font-weight:normal;line-height:1.2;margin:18px 0 28px}
-p{line-height:1.8;color:#d1c7d9;font-size:16px}
-.intro{max-width:520px;margin:0 auto 20px}
-.eyebrow{color:var(--gold);font-size:11px;letter-spacing:3px;text-transform:uppercase}
-.primary{background:linear-gradient(135deg,#e3ce9e,#b99a66);border:1px solid #f3dfb0;color:#21182b;padding:15px 28px;letter-spacing:2px;text-transform:uppercase;font-size:12px;transition:.25s}
-.primary:hover{filter:brightness(1.12);transform:translateY(-2px)}
-.small{background:transparent;color:var(--muted);border:1px solid #ffffff35;padding:12px 20px;font-size:12px;letter-spacing:1px}
-.rule{height:1px;width:100px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:22px auto}
-.progress-wrap{max-width:560px;margin:0 auto 30px;text-align:left}
-.progress-label{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-.track{height:2px;background:#ffffff19}
-.fill{height:100%;width:0;background:var(--gold);transition:width .4s}
-.question{max-width:580px;margin:0 auto 28px}
-.answers{display:grid;grid-template-columns:1fr;gap:10px;max-width:560px;margin:auto}
-.answer{display:flex;align-items:center;text-align:left;gap:15px;width:100%;padding:16px 18px;background:var(--panel);border:1px solid #c7b5db35;color:#f4edf8;line-height:1.5;font-size:15px;transition:background .2s,border .2s,transform .2s;animation:appear .4s ease both}
-.answer:hover,.answer:focus-visible{border-color:var(--gold);background:#44334f;transform:translateX(3px);outline:none}
-.answer:disabled{opacity:.8;cursor:default}
-.gem{flex:0 0 9px;width:9px;height:9px;border:1px solid var(--gold);transform:rotate(45deg)}
-.note{font-size:12px;color:#9e92ad;margin-top:22px}
-.result-symbol{font-size:48px;margin:16px}
-.result-name{font-size:clamp(43px,10vw,76px);margin:12px 0;color:var(--gold)}
-.result-tagline{font-size:21px;font-style:italic;color:#e2d3ef}
-.result-copy{max-width:530px;margin:22px auto}
-.magic{color:var(--gold);font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-top:24px}
-.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
-footer{text-align:center;color:#82768f;font-size:10px;letter-spacing:2px;padding-top:24px}
-.hidden{display:none!important}
-@media(min-width:600px){.answers{grid-template-columns:1fr 1fr}.answer{min-height:84px}.shell{padding-top:40px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+:root {
+  --bg:#100b18;
+  --gold:#dfc18b;
+  --accent:#c5a5f0;
+  --muted:#bdb0c9;
+  --panel:rgba(34,25,45,.82);
+  --line:rgba(223,193,139,.35);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; min-height:100vh; color:#f8f0e8;
+  background:
+    radial-gradient(ellipse at 50% 0%,#382746 0%,transparent 48%),
+    radial-gradient(ellipse at 10% 85%,#21142c 0%,transparent 42%),
+    #100b18;
+  font-family:Georgia,"Times New Roman",serif;
+}
+body:before {
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.45;
+  background-image:
+    radial-gradient(1px 1px at 12% 20%,#fff,transparent),
+    radial-gradient(2px 2px at 76% 12%,#e7d8ff,transparent),
+    radial-gradient(1px 1px at 42% 60%,#fff,transparent),
+    radial-gradient(1px 1px at 87% 73%,#fff,transparent),
+    radial-gradient(2px 2px at 22% 83%,#dfc6ff,transparent),
+    radial-gradient(1px 1px at 62% 38%,#fff,transparent);
+  background-size:280px 260px;
+}
+button { font:inherit; cursor:pointer; }
+button:focus-visible { outline:2px solid var(--gold);outline-offset:4px; }
+.shell {
+  width:min(800px,100%);min-height:100vh;margin:auto;
+  padding:28px 22px 26px;display:flex;flex-direction:column;
+  position:relative;
+}
+.top {
+  text-align:center;font-size:10px;letter-spacing:4px;
+  text-transform:uppercase;color:var(--gold);
+}
+main { flex:1;display:flex;align-items:center;justify-content:center;padding:36px 0; }
+.screen { width:100%;text-align:center;animation:appear .65s ease both; }
+.hidden { display:none!important; }
+@keyframes appear {
+  from { opacity:0;transform:translateY(15px); }
+  to { opacity:1;transform:translateY(0); }
+}
+@keyframes reveal {
+  0% { opacity:0;transform:scale(.94);filter:blur(5px); }
+  100% { opacity:1;transform:scale(1);filter:blur(0); }
+}
+@keyframes glow {
+  0%,100% { text-shadow:0 0 18px color-mix(in srgb,var(--accent) 25%,transparent); }
+  50% { text-shadow:0 0 36px color-mix(in srgb,var(--accent) 60%,transparent); }
+}
+.moon {
+  font-size:54px;color:var(--gold);margin:25px 0 14px;
+  text-shadow:0 0 35px #c6a6ff66;
+}
+.eyebrow {
+  color:var(--gold);font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;line-height:1.8;
+}
+h1 { font-size:clamp(37px,8vw,66px);font-weight:normal;line-height:1.08;margin:18px auto 22px;max-width:680px; }
+h2 { font-size:clamp(27px,6vw,40px);font-weight:normal;line-height:1.2;margin:20px 0 26px; }
+p { line-height:1.8;color:#d7ccdf;font-size:15px; }
+.intro { max-width:535px;margin:0 auto 20px; }
+.rule { height:1px;width:105px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:25px auto; }
+.primary {
+  background:linear-gradient(135deg,#eddbb0,#bd9b66);
+  border:1px solid #f5e4bc;color:#211729;padding:16px 27px;
+  letter-spacing:2px;text-transform:uppercase;font-size:11px;
+  transition:filter .25s,transform .25s;
+}
+.primary:hover { filter:brightness(1.12);transform:translateY(-2px); }
+.small {
+  background:transparent;color:var(--muted);
+  border:1px solid #ffffff35;padding:13px 20px;
+  font-size:11px;letter-spacing:1px;
+}
+.note { font-size:11px;color:#a69ab3;margin-top:23px; }
+.progress-wrap { max-width:570px;margin:0 auto 32px;text-align:left; }
+.progress-label { display:flex;justify-content:space-between;color:var(--muted);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px; }
+.track { height:2px;background:#ffffff1b; }
+.fill { height:100%;width:0;background:var(--gold);transition:width .4s; }
+.question { max-width:590px;margin:0 auto 28px; }
+.answers { display:grid;grid-template-columns:1fr;gap:10px;max-width:570px;margin:auto; }
+.answer {
+  display:flex;align-items:center;text-align:left;gap:15px;width:100%;
+  padding:17px 18px;background:var(--panel);
+  border:1px solid #c7b5db35;color:#f4edf8;line-height:1.55;
+  font-size:14px;transition:background .25s,border .25s,transform .25s;
+  animation:appear .4s ease both;backdrop-filter:blur(8px);
+}
+.answer:hover,.answer:focus-visible { border-color:var(--accent);background:#44334f;transform:translateY(-2px);outline:none; }
+.answer:disabled { opacity:.8;cursor:default; }
+.gem { flex:0 0 8px;width:8px;height:8px;border:1px solid var(--gold);transform:rotate(45deg); }
+.result-card {
+  --accent:#c5a5f0;
+  border:1px solid var(--line);
+  background:linear-gradient(160deg,rgba(48,35,60,.88),rgba(16,11,24,.92));
+  padding:clamp(22px,5vw,42px) clamp(17px,5vw,38px);
+  position:relative;overflow:hidden;
+  box-shadow:0 18px 70px #0004;
+}
+.result-card:before {
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--accent) 17%,transparent),transparent 65%);
+}
+.result-card>* { position:relative; }
+.result-symbol { font-size:55px;color:var(--accent);margin:22px 0 10px;animation:glow 4s ease-in-out infinite; }
+.result-name { font-size:clamp(42px,10vw,75px);line-height:1.05;margin:12px 0;color:var(--accent);animation:reveal .9s ease both; }
+.result-tagline { font-size:clamp(18px,4vw,23px);font-style:italic;color:#eee0f2;margin:18px 0; }
+.result-copy { max-width:550px;margin:20px auto; }
+.result-grid { display:grid;grid-template-columns:1fr;gap:11px;margin:28px auto;max-width:570px;text-align:left; }
+.trait {
+  border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);
+  background:rgba(12,9,19,.38);padding:17px 18px;
+}
+.trait h3 { color:var(--accent);font-size:10px;font-weight:normal;letter-spacing:2px;text-transform:uppercase;margin:0 0 10px; }
+.trait p { font-size:13px;line-height:1.75;margin:0; }
+.magic { color:var(--accent);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;line-height:1.8;margin-top:26px; }
+.result-actions { display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:27px; }
+footer { text-align:center;color:#82768f;font-size:9px;letter-spacing:2px;padding-top:24px;line-height:1.8; }
+@media(min-width:600px) {
+  .answers { grid-template-columns:1fr 1fr; }
+  .answer { min-height:84px; }
+  .shell { padding-top:38px; }
+  .result-grid { grid-template-columns:1fr 1fr; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*:before,*:after { animation:none!important;transition:none!important;scroll-behavior:auto!important; }
+}
 </style>
 </head>
 <body>
@@ -55,59 +147,116 @@ footer{text-align:center;color:#82768f;font-size:10px;letter-spacing:2px;padding
 <header class="top">✧ A journey through Prythian ✧</header>
 <main>
 <section id="intro" class="screen">
-<div class="moon">☾</div>
-<div class="eyebrow">Seven courts. Seven kinds of magic.</div>
-<h1>Which Court of Prythian Claims You?</h1>
-<div class="rule"></div>
-<p class="intro">Beyond the Wall, beyond the mortal lands, seven courts await. Each holds its own magic, its own secrets and its own kind of power.</p>
-<p class="intro">Answer instinctively. Choose what feels like you, not what sounds most heroic. Your choices will reveal where your magic belongs.</p>
-<p class="intro"><em>The question is not which court you admire most. It is which court would recognise you as one of its own.</em></p>
-<button class="primary" id="start">Enter Prythian</button>
-<p class="note">15 questions · 7 possible courts · Your fate awaits</p>
+  <div class="moon">☾</div>
+  <div class="eyebrow">Seven courts. Seven kinds of magic.</div>
+  <h1>Which Court of Prythian Claims You?</h1>
+  <div class="rule"></div>
+  <p class="intro">Beyond the Wall, beyond the mortal lands, seven courts await. Each holds its own magic, its own secrets and its own kind of power.</p>
+  <p class="intro">Answer instinctively. Choose what feels like you, not what sounds most heroic. Your choices will reveal where your magic belongs.</p>
+  <p class="intro"><em>The question is not which court you admire most. It is which court would recognise you as one of its own.</em></p>
+  <button class="primary" id="start">Enter Prythian</button>
+  <p class="note"><span id="introCount">14</span> questions · 7 possible courts · Your fate awaits</p>
 </section>
 
 <section id="quiz" class="screen hidden">
-<div class="progress-wrap">
-<div class="progress-label"><span id="step">Question 1 of 15</span><span id="percent">7%</span></div>
-<div class="track"><div class="fill" id="fill"></div></div>
-</div>
-<div class="eyebrow">Trust your instincts</div>
-<h2 class="question" id="question"></h2>
-<div class="answers" id="answers"></div>
-<p class="note">Choose the answer that feels most like you.</p>
+  <div class="progress-wrap">
+    <div class="progress-label"><span id="step"></span><span id="percent"></span></div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+  </div>
+  <div class="eyebrow">Trust your instincts</div>
+  <h2 class="question" id="question"></h2>
+  <div class="answers" id="answers"></div>
+  <p class="note">Choose the answer that feels most like you.</p>
 </section>
 
 <section id="result" class="screen hidden">
-<div class="eyebrow">The magic has spoken</div>
-<div class="result-symbol" id="symbol">✧</div>
-<div class="result-name" id="court"></div>
-<div class="rule"></div>
-<div class="result-tagline" id="tagline"></div>
-<p class="result-copy" id="description"></p>
-<div class="magic" id="magic"></div>
-<p class="result-copy" id="closing"></p>
-<div class="result-actions">
-<button class="primary" id="share">Share my court</button>
-<button class="small" id="restart">Begin again</button>
-</div>
-<p class="note">A little magic, a little mystery, entirely for fun.</p>
+  <div class="result-card" id="resultCard">
+    <div class="eyebrow">The magic has spoken</div>
+    <div class="result-symbol" id="symbol">✧</div>
+    <div class="eyebrow">Your soul belongs to</div>
+    <div class="result-name" id="court"></div>
+    <div class="rule"></div>
+    <div class="result-tagline" id="tagline"></div>
+    <p class="result-copy" id="description"></p>
+    <div class="result-grid">
+      <div class="trait"><h3>Your greatest strength</h3><p id="strength"></p></div>
+      <div class="trait"><h3>Your hidden edge</h3><p id="shadow"></p></div>
+      <div class="trait"><h3>When it comes to love</h3><p id="love"></p></div>
+      <div class="trait"><h3>Your court's magic</h3><p id="magicDetail"></p></div>
+    </div>
+    <div class="magic" id="magic"></div>
+    <p class="result-copy" id="closing"></p>
+    <div class="result-actions">
+      <button class="primary" id="share">Share my court</button>
+      <button class="small" id="restart">Begin again</button>
+    </div>
+    <p class="note">A little magic, a little mystery, entirely for fun.</p>
+  </div>
 </section>
 </main>
 <footer>THE SEVEN COURTS · YOUR STORY IS YOURS TO WRITE</footer>
 </div>
-
 <script>
-const courts={
-Night:{symbol:"☾",color:"#c5a5f0",tag:"The stars remember you.",description:"Fiercely independent, perceptive and loyal beyond measure. You understand that strength doesn't always announce itself; sometimes it watches, waits and protects from the shadows. You value freedom, chosen family and the right to decide your own destiny.",magic:"Your magic: Shadows, starlight and the unseen.",closing:"Your power lies in knowing who deserves to stand beside you — and what you are willing to protect."},
-Dawn:{symbol:"☼",color:"#f0bd9a",tag:"You are the promise of a new beginning.",description:"Hopeful, compassionate and quietly resilient, you see possibility where others see an ending. You believe that even broken things can become beautiful, and that kindness can be a kind of courage.",magic:"Your magic: Sunrise, restoration and renewal.",closing:"Even after the longest night, you believe something beautiful can still begin."},
-Day:{symbol:"✧",color:"#e6d28b",tag:"Knowledge is its own kind of power.",description:"Curious, analytical and perceptive, you seek truth and find wonder in understanding. You value meaningful conversation, sharp minds and the courage to question what others take for granted.",magic:"Your magic: Light, knowledge and discovery.",closing:"You do not fear difficult questions. You fear never finding the answers."},
-Summer:{symbol:"❋",color:"#77d8db",tag:"You were never meant to live in a cage.",description:"Bold, warm and full of life, you believe the world is meant to be experienced. You value honesty, adventure, connection and the freedom to be unapologetically yourself.",magic:"Your magic: Ocean tides, sunlight and storms.",closing:"You make the world brighter simply by refusing to let it make you smaller."},
-Winter:{symbol:"❄",color:"#b9d9ef",tag:"There is strength in stillness.",description:"Composed, disciplined and principled, you know that trust is earned. You protect your peace, hold fast to your values and remain steady when life tests you.",magic:"Your magic: Ice, frost and endurance.",closing:"You have learned that a quiet heart can be stronger than the fiercest storm."},
-Spring:{symbol:"❀",color:"#b9d99e",tag:"Growth is a form of courage.",description:"Warm-hearted and resilient, you appreciate beauty and believe in healing, tenderness and transformation. You understand that growing into yourself can take time, patience and bravery.",magic:"Your magic: Blossoms, nature and rebirth.",closing:"You are not defined by what has happened to you, but by what you choose to grow from it."},
-Autumn:{symbol:"♨",color:"#e7a16d",tag:"You were forged to rise.",description:"Intense, ambitious and determined, you understand that power is complicated and transformation can demand difficult choices. You face challenges head-on and refuse to let circumstances write your ending.",magic:"Your magic: Fire, embers and transformation.",closing:"You do not wait for the world to give you permission to become who you are meant to be."}
+const courts = {
+Night:{
+ symbol:"☾",color:"#c5a5f0",tag:"The stars remember you.",
+ description:"Fiercely independent, perceptive and loyal beyond measure. You understand that strength doesn't always announce itself; sometimes it watches, waits and protects from the shadows. You value freedom, chosen family and the right to decide your own destiny.",
+ strength:"You read between the lines, stay composed under pressure and protect the people you choose as your own.",
+ shadow:"You may carry too much alone, keeping your vulnerabilities hidden even from the people who have earned your trust.",
+ love:"You need loyalty, honesty and a bond deep enough to let you be entirely yourself. Once someone is truly yours, you show up.",
+ magic:"Shadows, starlight and the unseen.",closing:"Your power lies in knowing who deserves to stand beside you — and what you are willing to protect."
+},
+Dawn:{
+ symbol:"☼",color:"#f0bd9a",tag:"You are the promise of a new beginning.",
+ description:"Hopeful, compassionate and quietly resilient, you see possibility where others see an ending. You believe that even broken things can become beautiful, and that kindness can be a kind of courage.",
+ strength:"You bring perspective and warmth into difficult moments. You remind others that a setback does not have to be the end of the story.",
+ shadow:"You may give second chances before they are earned, or feel responsible for keeping everyone hopeful.",
+ love:"You flourish with gentleness, emotional honesty and a partner who grows alongside you rather than asking you to do all the healing.",
+ magic:"Sunrise, restoration and renewal.",closing:"Even after the longest night, you believe something beautiful can still begin."
+},
+Day:{
+ symbol:"✧",color:"#e6d28b",tag:"Knowledge is its own kind of power.",
+ description:"Curious, analytical and perceptive, you seek truth and find wonder in understanding. You value meaningful conversation, sharp minds and the courage to question what others take for granted.",
+ strength:"You notice patterns, ask incisive questions and make decisions with care. Your clarity can bring order to complicated situations.",
+ shadow:"You can think a feeling to pieces or wait for perfect certainty before allowing yourself to act.",
+ love:"Mental connection matters. You need curiosity, mutual respect and conversations that keep revealing new layers of the person beside you.",
+ magic:"Light, knowledge and discovery.",closing:"You do not fear difficult questions. You fear never finding the answers."
+},
+Summer:{
+ symbol:"❋",color:"#77d8db",tag:"You were never meant to live in a cage.",
+ description:"Bold, warm and full of life, you believe the world is meant to be experienced. You value honesty, adventure, connection and the freedom to be unapologetically yourself.",
+ strength:"You create momentum, bring people together and remind those around you that joy is worth protecting.",
+ shadow:"You may run from restriction so quickly that you overlook commitments worth choosing freely.",
+ love:"You want passion, laughter, openness and room to breathe. The right relationship feels like a shared adventure, not a set of chains.",
+ magic:"Ocean tides, sunlight and storms.",closing:"You make the world brighter simply by refusing to let it make you smaller."
+},
+Winter:{
+ symbol:"❄",color:"#b9d9ef",tag:"There is strength in stillness.",
+ description:"Composed, disciplined and principled, you know that trust is earned. You protect your peace, hold fast to your values and remain steady when life tests you.",
+ strength:"You are dependable when the pressure rises. Your calm presence and strong principles give others something solid to lean on.",
+ shadow:"You may mistake self-protection for self-sufficiency, or keep people at a distance long after they have proved themselves.",
+ love:"You value consistency over grand promises. Trust builds slowly, but your care is deliberate, enduring and shown through action.",
+ magic:"Ice, frost and endurance.",closing:"You have learned that a quiet heart can be stronger than the fiercest storm."
+},
+Spring:{
+ symbol:"❀",color:"#b9d99e",tag:"Growth is a form of courage.",
+ description:"Warm-hearted and resilient, you appreciate beauty and believe in healing, tenderness and transformation. You understand that growing into yourself can take time, patience and bravery.",
+ strength:"You make room for people to recover, change and feel seen. You understand that real growth needs both patience and courage.",
+ shadow:"You may nurture others past your own limits or stay in familiar places because you can still see their potential.",
+ love:"You need tenderness, emotional safety and mutual effort. Love should help both people bloom, not ask one person to do all the tending.",
+ magic:"Blossoms, nature and rebirth.",closing:"You are not defined by what has happened to you, but by what you choose to grow from it."
+},
+Autumn:{
+ symbol:"♨",color:"#e7a16d",tag:"You were forged to rise.",
+ description:"Intense, ambitious and determined, you understand that power is complicated and transformation can demand difficult choices. You face challenges head-on and refuse to let circumstances write your ending.",
+ strength:"You have the resolve to make difficult decisions, face uncomfortable truths and keep moving when the path is demanding.",
+ shadow:"You may turn every setback into a battle to win, making it hard to rest or let someone else carry part of the weight.",
+ love:"You are drawn to depth, strength and honesty. You need a partner who meets you as an equal and respects the fire that makes you who you are.",
+ magic:"Fire, embers and transformation.",closing:"You do not wait for the world to give you permission to become who you are meant to be."
+}
 };
 
-const questions=[
+const questions = [
 ["At a gathering in a magical court, where are you most likely to be found?",[
 ["Night","On a quiet balcony, watching the stars and observing everything."],["Dawn","On a sunlit terrace, talking about possibilities and new beginnings."],["Day","In a grand library, surrounded by ancient books and curious minds."],["Summer","In the lively heart of the gathering, laughing beside the sea."],["Winter","In a peaceful snow-covered garden, enjoying the silence."],["Spring","Wandering through a beautiful garden filled with flowers."],["Autumn","In a candlelit hall, intrigued by the secrets and politics."]]],
 ["When life becomes difficult, what strength do you rely on most?",[
@@ -141,138 +290,115 @@ const questions=[
 ];
 
 let index=0,scores={},locked=false,lastAnswerCourt=null;
-
 const $=id=>document.getElementById(id);
 
-function shuffle(items){
- const a=[...items];
- for(let i=a.length-1;i>0;i--){
-  const j=Math.floor(Math.random()*(i+1));
-  [a[i],a[j]]=[a[j],a[i]];
- }
- return a;
-}
-
-function showScreen(name){
- ["intro","quiz","result"].forEach(id=>{
-  $(id).classList.toggle("hidden",id!==name);
- });
- window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function startQuiz(){
- index=0;
- lastAnswerCourt=null;
- locked=false;
- scores=Object.fromEntries(Object.keys(courts).map(c=>[c,0]));
- $("fill").style.width="0";
- showScreen("quiz");
- renderQuestion();
-}
-
-function renderQuestion(){
- locked=false;
- const q=questions[index];
- $("step").textContent=`Question ${index+1} of ${questions.length}`;
- $("percent").textContent=`${Math.round((index+1)/questions.length*100)}%`;
- $("fill").style.width=`${(index+1)/questions.length*100}%`;
- $("question").textContent=q[0];
- const container=$("answers");
- container.replaceChildren();
-
- shuffle(q[1]).forEach(([court,label],i)=>{
-  const button=document.createElement("button");
-  button.type="button";
-  button.className="answer";
-  button.style.animationDelay=`${i*35}ms`;
-
-  const gem=document.createElement("span");
-  gem.className="gem";
-
-  const text=document.createElement("span");
-  text.textContent=label;
-
-  button.append(gem,text);
-  button.addEventListener("click",()=>chooseAnswer(court));
-  container.append(button);
- });
-}
-
-function chooseAnswer(court){
- if(locked)return;
- locked=true;
- lastAnswerCourt=court;
- scores[court]++;
-
- $("answers").querySelectorAll("button").forEach(b=>b.disabled=true);
-
- const screen=$("quiz");
- screen.style.animation="none";
- void screen.offsetHeight;
- screen.style.animation="appear .28s ease reverse both";
-
- setTimeout(()=>{
-  index++;
-  if(index<questions.length){
-   screen.style.animation="";
-   renderQuestion();
-  }else{
-   showResult();
+function shuffle(items) {
+  const a=[...items];
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
   }
- },280);
+  return a;
 }
-
-function showResult(){
- const max=Math.max(...Object.values(scores));
- const winners=Object.keys(scores).filter(c=>scores[c]===max);
-
- // Prefer the final answer when its court is tied for the highest score.
- // If that does not resolve the tie, choose randomly among the tied courts.
- const winner=winners.includes(lastAnswerCourt)
-  ?lastAnswerCourt
-  :winners[Math.floor(Math.random()*winners.length)];
-
- const result=courts[winner];
-
- $("court").textContent=winner+" Court";
- $("symbol").textContent=result.symbol;
- $("symbol").style.color=result.color;
- $("court").style.color=result.color;
- $("tagline").textContent=result.tag;
- $("description").textContent=result.description;
- $("magic").textContent=result.magic;
- $("closing").textContent=result.closing;
-
- document.title=`${winner} Court | Which Court of Prythian Claims You?`;
- showScreen("result");
+function showScreen(name) {
+  ["intro","quiz","result"].forEach(id=>{
+    $(id).classList.toggle("hidden",id!==name);
+  });
+  window.scrollTo({top:0,behavior:"smooth"});
 }
-
+function startQuiz() {
+  index=0;lastAnswerCourt=null;locked=false;
+  scores=Object.fromEntries(Object.keys(courts).map(c=>[c,0]));
+  $("fill").style.width="0";
+  $("introCount").textContent=questions.length;
+  showScreen("quiz");
+  renderQuestion();
+}
+function renderQuestion() {
+  locked=false;
+  const q=questions[index];
+  $("step").textContent=`Question ${index+1} of ${questions.length}`;
+  $("percent").textContent=`${Math.round(index/questions.length*100)}%`;
+  $("fill").style.width=`${index/questions.length*100}%`;
+  $("question").textContent=q[0];
+  const container=$("answers");
+  container.replaceChildren();
+  shuffle(q[1]).forEach(([court,label],i)=>{
+    const button=document.createElement("button");
+    button.type="button";button.className="answer";
+    button.style.animationDelay=`${i*35}ms`;
+    const gem=document.createElement("span");gem.className="gem";
+    const text=document.createElement("span");text.textContent=label;
+    button.append(gem,text);
+    button.addEventListener("click",()=>chooseAnswer(court));
+    container.append(button);
+  });
+}
+function chooseAnswer(court) {
+  if(locked)return;
+  locked=true;lastAnswerCourt=court;scores[court]++;
+  $("answers").querySelectorAll("button").forEach(b=>b.disabled=true);
+  const screen=$("quiz");
+  screen.style.animation="none";void screen.offsetHeight;
+  screen.style.animation="appear .28s ease reverse both";
+  setTimeout(()=>{
+    index++;
+    if(index<questions.length){
+      screen.style.animation="";
+      renderQuestion();
+    } else {
+      $("fill").style.width="100%";
+      $("percent").textContent="100%";
+      showResult();
+    }
+  },280);
+}
+function showResult() {
+  const max=Math.max(...Object.values(scores));
+  const winners=Object.keys(scores).filter(c=>scores[c]===max);
+  const winner=winners.includes(lastAnswerCourt)
+    ?lastAnswerCourt
+    :winners[Math.floor(Math.random()*winners.length)];
+  const result=courts[winner];
+  $("resultCard").style.setProperty("--accent",result.color);
+  $("court").textContent=winner+" Court";
+  $("symbol").textContent=result.symbol;
+  $("tagline").textContent=result.tag;
+  $("description").textContent=result.description;
+  $("strength").textContent=result.strength;
+  $("shadow").textContent=result.shadow;
+  $("love").textContent=result.love;
+  $("magicDetail").textContent=result.magic;
+  $("magic").textContent="Your magic: "+result.magic;
+  $("closing").textContent=result.closing;
+  $("share").textContent="Share my court";
+  document.title=`${winner} Court | Which Court of Prythian Claims You?`;
+  showScreen("result");
+}
 $("start").addEventListener("click",startQuiz);
 $("restart").addEventListener("click",()=>{
- document.title="Which Court of Prythian Claims You?";
- startQuiz();
+  document.title="Which Court of Prythian Claims You?";
+  startQuiz();
 });
-
 $("share").addEventListener("click",async()=>{
- const court=$("court").textContent;
- const title="My Court of Prythian";
- const text=`My magic belongs to the ${court}! Which Court of Prythian Claims You?`;
-
- try{
-  if(navigator.share){
-   await navigator.share({title,text,url:location.href});
-  }else if(navigator.clipboard&&window.isSecureContext){
-   await navigator.clipboard.writeText(text+" "+location.href);
-   $("share").textContent="Copied to clipboard!";
-   setTimeout(()=>$("share").textContent="Share my court",2200);
-  }else{
-   window.prompt("Copy your result and quiz link:",text+" "+location.href);
+  const court=$("court").textContent;
+  const title="My Court of Prythian";
+  const text=`My magic belongs to the ${court}! Which Court of Prythian Claims You?`;
+  try {
+    if(navigator.share) {
+      await navigator.share({title,text,url:location.href});
+    } else if(navigator.clipboard&&window.isSecureContext) {
+      await navigator.clipboard.writeText(text+" "+location.href);
+      $("share").textContent="Copied to clipboard!";
+      setTimeout(()=>$("share").textContent="Share my court",2200);
+    } else {
+      window.prompt("Copy your result and quiz link:",text+" "+location.href);
+    }
+  } catch(error) {
+    if(error.name!=="AbortError") {
+      window.prompt("Copy your result and quiz link:",text+" "+location.href);
+    }
   }
- }catch(error){
-  if(error.name!=="AbortError"){
-   window.prompt("Copy your result and quiz link:",text+" "+location.href);
-  }
- }
 });
 </script>
 </body>
