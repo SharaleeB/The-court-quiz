@@ -17,16 +17,21 @@
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
+
 body {
-  margin:0; min-height:100vh; color:#f8f0e8;
-  background:
-    radial-gradient(ellipse at 50% 0%,#382746 0%,transparent 48%),
-    radial-gradient(ellipse at 10% 85%,#21142c 0%,transparent 42%),
-    #100b18;
-  font-family:Georgia,"Times New Roman",serif;
+  margin: 0;
+  min-height: 100vh;
+  color: #f8f0e8;
+  background-color: #100b18;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: Georgia, "Times New Roman", serif;
 }
+
 body:before {
-  content:"";position:fixed;inset:0;pointer-events:none;opacity:.45;
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;
   background-image:
     radial-gradient(1px 1px at 12% 20%,#fff,transparent),
     radial-gradient(2px 2px at 76% 12%,#e7d8ff,transparent),
@@ -360,6 +365,19 @@ function showResult() {
     ?lastAnswerCourt
     :winners[Math.floor(Math.random()*winners.length)];
   const result=courts[winner];
+  
+const backgroundImages = {
+  "Night": "night.jpg",
+  "Dawn": "dawn.jpg",
+  "Day": "day.jpg",
+  "Spring": "spring.jpg",
+  "Summer": "summer.jpg",
+  "Autumn": "autumn.jpg",
+  "Winter": "winter.jpg"
+};
+document.body.style.backgroundImage =
+  `linear-gradient(rgba(16,11,24,.48), rgba(16,11,24,.65)), url("${backgroundImages[winner]}")`;
+
   $("resultCard").style.setProperty("--accent",result.color);
   $("court").textContent=winner+" Court";
   $("symbol").textContent=result.symbol;
