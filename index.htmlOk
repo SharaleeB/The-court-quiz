@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,37 +7,36 @@
 <meta name="theme-color" content="#100d1c">
 <title>Which Court of Prythian Claims You?</title>
 <style>
-:root{--bg:#100d1c;--gold:#d8bd87;--muted:#b8afc6;--panel:rgba(29,23,43,.82)}
+:root{--bg:#100d1c;--gold:#d8bd87;--muted:#b8afc6;--panel:rgba(29,23,43,.88)}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 5%,#302343 0%,#171224 44%,#0b0912 100%);color:#f8f1e8;font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.45;background-image:radial-gradient(1px 1px at 12% 20%,#fff,transparent),radial-gradient(2px 2px at 76% 12%,#e7d8ff,transparent),radial-gradient(1px 1px at 42% 60%,#fff,transparent),radial-gradient(1px 1px at 87% 73%,#fff,transparent),radial-gradient(2px 2px at 22% 83%,#dfc6ff,transparent),radial-gradient(1px 1px at 62% 38%,#fff,transparent);background-size:280px 260px}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 5%,#302343,#171224 48%,#0b0912);color:#f8f1e8;font-family:Georgia,"Times New Roman",serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(1px 1px at 12% 20%,#fff,transparent),radial-gradient(2px 2px at 76% 12%,#e7d8ff,transparent),radial-gradient(1px 1px at 42% 60%,#fff,transparent),radial-gradient(1px 1px at 87% 73%,#fff,transparent),radial-gradient(2px 2px at 22% 83%,#dfc6ff,transparent),radial-gradient(1px 1px at 62% 38%,#fff,transparent);background-size:280px 260px}
 button{font:inherit;cursor:pointer}
-.shell{width:min(760px,100%);min-height:100vh;margin:auto;padding:34px 22px 45px;display:flex;flex-direction:column;position:relative}
+.shell{width:min(760px,100%);min-height:100vh;margin:auto;padding:34px 22px 30px;display:flex;flex-direction:column;position:relative}
 .top{text-align:center;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
-main{flex:1;display:flex;align-items:center;justify-content:center}
-.screen{width:100%;text-align:center;animation:appear .65s ease both}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:32px 0}
+.screen{width:100%;text-align:center;animation:appear .6s ease both}
 @keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-@keyframes glow{0%,100%{box-shadow:0 0 12px #c4a4ff12}50%{box-shadow:0 0 28px #c4a4ff35}}
 .moon{font-size:54px;color:var(--gold);margin:22px 0 12px;text-shadow:0 0 35px #c6a6ff66}
 h1{font-size:clamp(36px,8vw,62px);font-weight:normal;line-height:1.08;margin:16px auto 20px;max-width:650px}
-h2{font-size:clamp(27px,6vw,39px);font-weight:normal;line-height:1.2;margin:18px 0}
+h2{font-size:clamp(27px,6vw,39px);font-weight:normal;line-height:1.2;margin:18px 0 28px}
 p{line-height:1.8;color:#d1c7d9;font-size:16px}
-.intro{max-width:520px;margin:0 auto 28px}
+.intro{max-width:520px;margin:0 auto 20px}
 .eyebrow{color:var(--gold);font-size:11px;letter-spacing:3px;text-transform:uppercase}
 .primary{background:linear-gradient(135deg,#e3ce9e,#b99a66);border:1px solid #f3dfb0;color:#21182b;padding:15px 28px;letter-spacing:2px;text-transform:uppercase;font-size:12px;transition:.25s}
 .primary:hover{filter:brightness(1.12);transform:translateY(-2px)}
-.small{background:transparent;color:var(--muted);border:1px solid #ffffff25;padding:12px 20px;font-size:12px;letter-spacing:1px}
+.small{background:transparent;color:var(--muted);border:1px solid #ffffff35;padding:12px 20px;font-size:12px;letter-spacing:1px}
 .rule{height:1px;width:100px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:22px auto}
 .progress-wrap{max-width:560px;margin:0 auto 30px;text-align:left}
 .progress-label{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
 .track{height:2px;background:#ffffff19}
 .fill{height:100%;width:0;background:var(--gold);transition:width .4s}
-.question{font-size:clamp(27px,6vw,39px);margin:0 auto 28px;max-width:580px}
+.question{max-width:580px;margin:0 auto 28px}
 .answers{display:grid;grid-template-columns:1fr;gap:10px;max-width:560px;margin:auto}
-.answer{display:flex;align-items:center;text-align:left;gap:15px;width:100%;padding:16px 18px;background:var(--panel);border:1px solid #c7b5db28;color:#f4edf8;line-height:1.5;font-size:15px;transition:background .2s,border .2s,transform .2s;animation:appear .4s ease both}
+.answer{display:flex;align-items:center;text-align:left;gap:15px;width:100%;padding:16px 18px;background:var(--panel);border:1px solid #c7b5db35;color:#f4edf8;line-height:1.5;font-size:15px;transition:background .2s,border .2s,transform .2s;animation:appear .4s ease both}
 .answer:hover,.answer:focus-visible{border-color:var(--gold);background:#44334f;transform:translateX(3px);outline:none}
+.answer:disabled{opacity:.8;cursor:default}
 .gem{flex:0 0 9px;width:9px;height:9px;border:1px solid var(--gold);transform:rotate(45deg)}
-.answer:active{background:#685176}
 .note{font-size:12px;color:#9e92ad;margin-top:22px}
 .result-symbol{font-size:48px;margin:16px}
 .result-name{font-size:clamp(43px,10vw,76px);margin:12px 0;color:var(--gold)}
@@ -97,7 +97,7 @@ footer{text-align:center;color:#82768f;font-size:10px;letter-spacing:2px;padding
 </div>
 
 <script>
-const courts = {
+const courts={
 Night:{symbol:"☾",color:"#c5a5f0",tag:"The stars remember you.",description:"Fiercely independent, perceptive and loyal beyond measure. You understand that strength doesn't always announce itself; sometimes it watches, waits and protects from the shadows. You value freedom, chosen family and the right to decide your own destiny.",magic:"Your magic: Shadows, starlight and the unseen.",closing:"Your power lies in knowing who deserves to stand beside you — and what you are willing to protect."},
 Dawn:{symbol:"☼",color:"#f0bd9a",tag:"You are the promise of a new beginning.",description:"Hopeful, compassionate and quietly resilient, you see possibility where others see an ending. You believe that even broken things can become beautiful, and that kindness can be a kind of courage.",magic:"Your magic: Sunrise, restoration and renewal.",closing:"Even after the longest night, you believe something beautiful can still begin."},
 Day:{symbol:"✧",color:"#e6d28b",tag:"Knowledge is its own kind of power.",description:"Curious, analytical and perceptive, you seek truth and find wonder in understanding. You value meaningful conversation, sharp minds and the courage to question what others take for granted.",magic:"Your magic: Light, knowledge and discovery.",closing:"You do not fear difficult questions. You fear never finding the answers."},
@@ -107,9 +107,7 @@ Spring:{symbol:"❀",color:"#b9d99e",tag:"Growth is a form of courage.",descript
 Autumn:{symbol:"♨",color:"#e7a16d",tag:"You were forged to rise.",description:"Intense, ambitious and determined, you understand that power is complicated and transformation can demand difficult choices. You face challenges head-on and refuse to let circumstances write your ending.",magic:"Your magic: Fire, embers and transformation.",closing:"You do not wait for the world to give you permission to become who you are meant to be."}
 };
 
-// Each question contains seven answers. The court attached to an answer
-// stays the same even when the displayed answer order is shuffled.
-const questions = [
+const questions=[
 ["At a gathering in a magical court, where are you most likely to be found?",[
 ["Night","On a quiet balcony, watching the stars and observing everything."],["Dawn","On a sunlit terrace, talking about possibilities and new beginnings."],["Day","In a grand library, surrounded by ancient books and curious minds."],["Summer","In the lively heart of the gathering, laughing beside the sea."],["Winter","In a peaceful snow-covered garden, enjoying the silence."],["Spring","Wandering through a beautiful garden filled with flowers."],["Autumn","In a candlelit hall, intrigued by the secrets and politics."]]],
 ["When life becomes difficult, what strength do you rely on most?",[
@@ -135,31 +133,43 @@ const questions = [
 ["What do people tend to misunderstand about you?",[
 ["Night","My independence can hide how deeply I care."],["Dawn","My optimism doesn't mean I've never suffered."],["Day","My analytical nature doesn't mean I lack emotion."],["Summer","My confidence can hide moments of uncertainty."],["Winter","My reserve can be mistaken for coldness."],["Spring","My gentleness can be mistaken for weakness."],["Autumn","My ambition can be mistaken for a lack of heart."]]],
 ["What kind of legacy would make you proud?",[
-["Night","Knowing I protected people and gave them the freedom to be themselves."],["Dawn","Helping others find hope when they needed it most."],["Day","Leaving behind knowledge that changed how people understand the world."],["Summer","Inspiring people to live boldly and embrace joy."],["Winter","Being remembered for courage and unwavering principles."],["Spring","Helping people heal, grow and begin again."],["Autumn","Overcoming the odds and shaping my own destiny."]]],
+["Night","Knowing I protected people and gave them freedom to be themselves."],["Dawn","Helping others find hope when they needed it most."],["Day","Leaving knowledge that changed how people understand the world."],["Summer","Inspiring people to live boldly and embrace joy."],["Winter","Being remembered for courage and unwavering principles."],["Spring","Helping people heal, grow and begin again."],["Autumn","Overcoming the odds and shaping my own destiny."]]],
 ["A dangerous situation unfolds. What is your first instinct?",[
 ["Night","Gather information and find the most strategic position."],["Dawn","Help everyone find a safe way forward."],["Day","Work out what the threat is and how it operates."],["Summer","Act quickly and bring people together."],["Winter","Assess the danger and hold my ground."],["Spring","Make sure the most vulnerable people are safe."],["Autumn","Confront the threat directly and decisively."]]],
 ["When you imagine a life that feels truly yours, what matters most?",[
 ["Night","Freedom, meaningful bonds and knowing my people are safe."],["Dawn","Peace, purpose and helping others see possibilities."],["Day","Understanding the world and always having more to discover."],["Summer","Living freely, finding joy and collecting unforgettable experiences."],["Winter","Knowing I stayed true to my principles."],["Spring","Love, growth and the chance to keep renewing myself."],["Autumn","Having the strength and freedom to choose my own future."]]]
 ];
 
-let index=0, scores={}, locked=false, lastResult=null;
+let index=0,scores={},locked=false,lastAnswerCourt=null;
+
 const $=id=>document.getElementById(id);
-const shuffle=array=>{
- const copy=[...array];
- for(let i=copy.length-1;i>0;i--){
+
+function shuffle(items){
+ const a=[...items];
+ for(let i=a.length-1;i>0;i--){
   const j=Math.floor(Math.random()*(i+1));
-  [copy[i],copy[j]]=[copy[j],copy[i]];
+  [a[i],a[j]]=[a[j],a[i]];
  }
- return copy;
-};
+ return a;
+}
+
 function showScreen(name){
- ["intro","quiz","result"].forEach(id=>$(id).classList.toggle("hidden",id!==name));
+ ["intro","quiz","result"].forEach(id=>{
+  $(id).classList.toggle("hidden",id!==name);
+ });
  window.scrollTo({top:0,behavior:"smooth"});
 }
+
 function startQuiz(){
- index=0;scores=Object.fromEntries(Object.keys(courts).map(c=>[c,0]));
- locked=false;showScreen("quiz");renderQuestion();
+ index=0;
+ lastAnswerCourt=null;
+ locked=false;
+ scores=Object.fromEntries(Object.keys(courts).map(c=>[c,0]));
+ $("fill").style.width="0";
+ showScreen("quiz");
+ renderQuestion();
 }
+
 function renderQuestion(){
  locked=false;
  const q=questions[index];
@@ -167,37 +177,64 @@ function renderQuestion(){
  $("percent").textContent=`${Math.round((index+1)/questions.length*100)}%`;
  $("fill").style.width=`${(index+1)/questions.length*100}%`;
  $("question").textContent=q[0];
- const container=$("answers");container.replaceChildren();
+ const container=$("answers");
+ container.replaceChildren();
+
  shuffle(q[1]).forEach(([court,label],i)=>{
   const button=document.createElement("button");
-  button.className="answer";button.style.animationDelay=`${i*35}ms`;
-  const gem=document.createElement("span");gem.className="gem";
-  const text=document.createElement("span");text.textContent=label;
+  button.type="button";
+  button.className="answer";
+  button.style.animationDelay=`${i*35}ms`;
+
+  const gem=document.createElement("span");
+  gem.className="gem";
+
+  const text=document.createElement("span");
+  text.textContent=label;
+
   button.append(gem,text);
   button.addEventListener("click",()=>chooseAnswer(court));
   container.append(button);
  });
 }
+
 function chooseAnswer(court){
- if(locked)return;locked=true;
+ if(locked)return;
+ locked=true;
+ lastAnswerCourt=court;
  scores[court]++;
+
  $("answers").querySelectorAll("button").forEach(b=>b.disabled=true);
- const current=$("quiz");current.style.animation="none";current.offsetHeight;
- current.style.animation="appear .35s ease reverse both";
+
+ const screen=$("quiz");
+ screen.style.animation="none";
+ void screen.offsetHeight;
+ screen.style.animation="appear .28s ease reverse both";
+
  setTimeout(()=>{
   index++;
-  if(index<questions.length){current.style.animation="";renderQuestion();}
-  else showResult();
- },300);
+  if(index<questions.length){
+   screen.style.animation="";
+   renderQuestion();
+  }else{
+   showResult();
+  }
+ },280);
 }
+
 function showResult(){
  const max=Math.max(...Object.values(scores));
  const winners=Object.keys(scores).filter(c=>scores[c]===max);
- // If tied, use the participant's last answer among the tied courts.
- // If that does not resolve it, use a random tied winner.
- const court=winners.includes(lastResult)?lastResult:winners[Math.floor(Math.random()*winners.length)];
- const result=courts[court];
- $("court").textContent=court+" Court";
+
+ // Prefer the final answer when its court is tied for the highest score.
+ // If that does not resolve the tie, choose randomly among the tied courts.
+ const winner=winners.includes(lastAnswerCourt)
+  ?lastAnswerCourt
+  :winners[Math.floor(Math.random()*winners.length)];
+
+ const result=courts[winner];
+
+ $("court").textContent=winner+" Court";
  $("symbol").textContent=result.symbol;
  $("symbol").style.color=result.color;
  $("court").style.color=result.color;
@@ -205,32 +242,37 @@ function showResult(){
  $("description").textContent=result.description;
  $("magic").textContent=result.magic;
  $("closing").textContent=result.closing;
- document.title=`${court} Court | Which Court of Prythian Claims You?`;
+
+ document.title=`${winner} Court | Which Court of Prythian Claims You?`;
  showScreen("result");
 }
-$("start").addEventListener("click",()=>{
- lastResult=null;
- // Track the final answer for tie-breaking.
- const original=chooseAnswer;
- startQuiz();
-});
+
+$("start").addEventListener("click",startQuiz);
 $("restart").addEventListener("click",()=>{
  document.title="Which Court of Prythian Claims You?";
- lastResult=null;startQuiz();
+ startQuiz();
 });
+
 $("share").addEventListener("click",async()=>{
  const court=$("court").textContent;
+ const title="My Court of Prythian";
  const text=`My magic belongs to the ${court}! Which Court of Prythian Claims You?`;
+
  try{
-  if(navigator.share) await navigator.share({title:"My Court of Prythian",text,url:location.href});
-  else if(navigator.clipboard&&window.isSecureContext){
+  if(navigator.share){
+   await navigator.share({title,text,url:location.href});
+  }else if(navigator.clipboard&&window.isSecureContext){
    await navigator.clipboard.writeText(text+" "+location.href);
    $("share").textContent="Copied to clipboard!";
    setTimeout(()=>$("share").textContent="Share my court",2200);
   }else{
    window.prompt("Copy your result and quiz link:",text+" "+location.href);
   }
- }catch(e){if(e.name!=="AbortError")window.prompt("Copy your result:",text+" "+location.href);}
+ }catch(error){
+  if(error.name!=="AbortError"){
+   window.prompt("Copy your result and quiz link:",text+" "+location.href);
+  }
+ }
 });
 </script>
 </body>
