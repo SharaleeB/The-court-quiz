@@ -274,7 +274,6 @@ footer { text-align:center;color:#82768f;font-size:9px;letter-spacing:2px;paddin
 </div>
     <p class="result-copy" id="closing"></p>
     <div class="result-actions">
-      <button class="primary" id="share">Share my court</button>
     </div>
     
 <div class="bnb-signature">
@@ -474,7 +473,6 @@ document.body.style.backgroundImage =
   $("shadow").textContent=result.shadow;
   $("magicDetail").textContent=result.magic;
   $("closing").textContent=result.closing;
-  $("share").textContent="Share my court";
   document.title=`${winner} Court | Which Court of Prythian Claims You?`;
   showScreen("result");
 }
@@ -483,26 +481,7 @@ $("restart").addEventListener("click",()=>{
   document.title="Which Court of Prythian Claims You?";
   startQuiz();
 });
-$("share").addEventListener("click",async()=>{
-  const court=$("court").textContent;
-  const title="My Court of Prythian";
-  const text=`My magic belongs to the ${court}! Which Court of Prythian Claims You?`;
-  try {
-    if(navigator.share) {
-      await navigator.share({title,text,url:location.href});
-    } else if(navigator.clipboard&&window.isSecureContext) {
-      await navigator.clipboard.writeText(text+" "+location.href);
-      $("share").textContent="Copied to clipboard!";
-      setTimeout(()=>$("share").textContent="Share my court",2200);
-    } else {
-      window.prompt("Copy your result and quiz link:",text+" "+location.href);
-    }
-  } catch(error) {
-    if(error.name!=="AbortError") {
-      window.prompt("Copy your result and quiz link:",text+" "+location.href);
-    }
-  }
-});
+
 </script>
 </body>
 </html>
